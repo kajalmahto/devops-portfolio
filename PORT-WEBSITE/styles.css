@@ -586,9 +586,16 @@ h1 {
 }
 
 /* Projects & Languages */
-.projects-grid, .languages-grid {
+.languages-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    text-align: left;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     text-align: left;
 }
@@ -732,4 +739,8 @@ h1 {
     .timeline::before { left: 15px; }
     .timeline-item { padding-left: 45px; }
     .timeline-dot { left: 7px; width: 14px; height: 14px; top: 28px; }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
 }

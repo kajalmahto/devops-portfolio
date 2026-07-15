@@ -56,20 +56,3 @@ window.addEventListener('scroll', () => {
     const scroll = `${(totalScroll / windowHeight) * 100}%`;
     scrollProgress.style.width = scroll;
 });
-
-// Copy Email to Clipboard fallback
-document.querySelectorAll('.email-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        // We don't prevent default, so it still tries to open the email app if configured.
-        const email = "kajal.mahto1318@gmail.com";
-        navigator.clipboard.writeText(email).then(() => {
-            const originalText = this.innerText;
-            this.innerText = 'Copied to clipboard!';
-            this.style.color = 'var(--accent)';
-            setTimeout(() => {
-                this.innerText = originalText;
-                this.style.color = '';
-            }, 2000);
-        });
-    });
-});
