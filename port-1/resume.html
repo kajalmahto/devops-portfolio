@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kajal Mahto - Cloud & DevOps Engineer Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-dark: #0a0c14;
+            --bg-card: #111827;
+            --bg-sidebar: #0f1320;
+            --accent-cyan: #00f2fe;
+            --accent-purple: #9d4edd;
+            --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #9d4edd 100%);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border-color: rgba(255,255,255,0.08);
+            --font-body: 'Inter', sans-serif;
+            --font-heading: 'Space Grotesk', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ── Top Action Bar ── */
+        .top-bar {
+            max-width: 960px;
+            margin: 32px auto 20px;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 10px 18px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            transition: all 0.3s ease;
+        }
+        .back-link:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+
+        .action-buttons { display: flex; gap: 12px; }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            font-family: var(--font-body);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-print {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+        .btn-print:hover { border-color: var(--accent-purple); color: var(--accent-purple); }
+
+        /* ── Resume Container ── */
+        .resume-wrapper {
+            max-width: 960px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        .resume-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        /* ── Header / Hero Banner ── */
+        .resume-hero {
+            position: relative;
+            padding: 48px 48px 40px;
+            background: linear-gradient(135deg, rgba(0,242,254,0.08) 0%, rgba(157,78,221,0.08) 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .resume-hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--accent-gradient);
+        }
+
+        .hero-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 32px;
+        }
+
+        .hero-identity h1 {
+            font-family: var(--font-heading);
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-identity h2 {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .hero-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .hero-contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-contact-item i { width: 14px; height: 14px; color: var(--accent-cyan); }
+
+        .hero-contact-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .hero-contact-item a:hover { color: var(--accent-cyan); }
+
+        /* ── Main Content ── */
+        .resume-body {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+        }
+
+        /* ── Sidebar ── */
+        .sidebar {
+            background: var(--bg-sidebar);
+            padding: 36px 28px;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .sidebar-section { margin-bottom: 32px; }
+        .sidebar-section:last-child { margin-bottom: 0; }
+
+        .sidebar-title {
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-cyan);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(0,242,254,0.15);
+        }
+
+        .skill-tag-group { display: flex; flex-wrap: wrap; gap: 6px; }
+
+        .skill-tag {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            background: rgba(0,242,254,0.06);
+            border: 1px solid rgba(0,242,254,0.12);
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .skill-tag:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+
+        .edu-sidebar-item { margin-bottom: 16px; }
+        .edu-sidebar-item:last-child { margin-bottom: 0; }
+
+        .edu-sidebar-degree {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .edu-sidebar-school {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .edu-sidebar-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            margin-top: 4px;
+        }
+
+        .edu-sidebar-score { color: var(--accent-cyan); font-weight: 600; }
+        .edu-sidebar-year { color: var(--text-muted); }
+
+        .lang-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+        .lang-pill {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background: rgba(157,78,221,0.08);
+            border: 1px solid rgba(157,78,221,0.15);
+            color: var(--text-secondary);
+        }
+
+        /* ── Main Column ── */
+        .main-content {
+            padding: 36px 40px;
+        }
+
+        .content-section { margin-bottom: 32px; }
+        .content-section:last-child { margin-bottom: 0; }
+
+        .content-title {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .content-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--accent-gradient);
+        }
+
+        /* Summary */
+        .summary-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Experience */
+        .exp-block { margin-bottom: 24px; position: relative; padding-left: 16px; }
+        .exp-block:last-child { margin-bottom: 0; }
+
+        .exp-block::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 8px;
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+            box-shadow: 0 0 8px rgba(0,242,254,0.4);
+        }
+
+        .exp-block::after {
+            content: '';
+            position: absolute;
+            left: 2.5px; top: 18px; bottom: 0;
+            width: 1px;
+            background: rgba(0,242,254,0.12);
+        }
+        .exp-block:last-child::after { display: none; }
+
+        .exp-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
+
+        .exp-role {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .exp-date {
+            font-size: 0.78rem;
+            color: var(--accent-cyan);
+            font-weight: 600;
+            font-family: var(--font-heading);
+        }
+
+        .exp-company {
+            font-size: 0.85rem;
+            color: var(--accent-purple);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .exp-company span { color: var(--text-muted); font-weight: 400; }
+
+        .exp-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .exp-bullets li {
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+            padding-left: 16px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .exp-bullets li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+            font-size: 0.9rem;
+        }
+
+        .exp-bullets li strong { color: var(--text-primary); font-weight: 600; }
+
+        /* Projects */
+        .project-block {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+        .project-block:hover { border-color: rgba(0,242,254,0.2); }
+        .project-block:last-child { margin-bottom: 0; }
+
+        .project-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .project-name span {
+            font-size: 0.78rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .project-desc {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .project-techs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .project-tech-tag {
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 3px;
+            background: rgba(157,78,221,0.08);
+            border: 1px solid rgba(157,78,221,0.15);
+            color: var(--accent-purple);
+            font-weight: 500;
+        }
+
+        /* ── Print Overrides ── */
+        @media print {
+            body { background: #fff; color: #1e293b; }
+            .top-bar { display: none !important; }
+            .resume-wrapper { margin: 0; padding: 0; }
+            .resume-card { box-shadow: none; border: none; border-radius: 0; }
+            .resume-hero { background: none; }
+            .resume-hero::before { background: #0284c7; }
+            .hero-identity h1 { background: none; -webkit-text-fill-color: #0284c7; color: #0284c7; }
+            .hero-identity h2 { color: #475569; }
+            .hero-contact-item, .hero-contact-item a { color: #475569; }
+            .hero-contact-item i { color: #0284c7; }
+            .sidebar { background: #f8fafc; border-right: 1px solid #e2e8f0; }
+            .sidebar-title { color: #0284c7; border-bottom-color: #e2e8f0; }
+            .skill-tag { background: #f0f9ff; border-color: #bae6fd; color: #1e293b; }
+            .edu-sidebar-degree { color: #1e293b; }
+            .edu-sidebar-school { color: #475569; }
+            .edu-sidebar-score { color: #0284c7; }
+            .edu-sidebar-year { color: #64748b; }
+            .lang-pill { background: #f5f3ff; border-color: #ddd6fe; color: #1e293b; }
+            .main-content { padding: 28px 32px; }
+            .content-title { color: #1e293b; border-bottom-color: #e2e8f0; }
+            .content-title::after { background: #0284c7; }
+            .summary-text { color: #475569; }
+            .exp-block::before { background: #0284c7; box-shadow: none; }
+            .exp-block::after { background: #e2e8f0; }
+            .exp-role { color: #1e293b; }
+            .exp-date { color: #0284c7; }
+            .exp-company { color: #7c3aed; }
+            .exp-company span { color: #64748b; }
+            .exp-bullets li { color: #475569; }
+            .exp-bullets li::before { color: #0284c7; }
+            .exp-bullets li strong { color: #1e293b; }
+            .project-block { background: #f8fafc; border-color: #e2e8f0; }
+            .project-name { color: #1e293b; }
+            .project-name span { color: #64748b; }
+            .project-desc { color: #475569; }
+            .project-tech-tag { background: #f5f3ff; border-color: #ddd6fe; color: #7c3aed; }
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .hero-top { flex-direction: column; gap: 16px; }
+            .hero-contact { text-align: left; }
+            .hero-contact-item { justify-content: flex-start; }
+            .resume-body { grid-template-columns: 1fr; }
+            .sidebar { border-right: none; border-bottom: 1px solid var(--border-color); }
+            .resume-hero { padding: 32px 24px; }
+            .main-content { padding: 28px 24px; }
+            .sidebar { padding: 28px 24px; }
+            .hero-identity h1 { font-size: 1.8rem; }
+            .top-bar { flex-direction: column; gap: 12px; align-items: stretch; }
+            .action-buttons { justify-content: flex-end; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Action Bar -->
+    <div class="top-bar">
+        <a href="index.html" class="back-link">
+            <i data-lucide="arrow-left"></i> Back to Portfolio
+        </a>
+        <div class="action-buttons">
+            <button onclick="window.print()" class="action-btn btn-print">
+                <i data-lucide="printer"></i> Print / PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- Resume -->
+    <div class="resume-wrapper">
+        <div class="resume-card">
+
+            <!-- Hero Header -->
+            <div class="resume-hero">
+                <div class="hero-top">
+                    <div class="hero-identity">
+                        <h1>KAJAL MAHTO</h1>
+                        <h2>Cloud & DevOps Engineer</h2>
+                    </div>
+                    <div class="hero-contact">
+                        <div class="hero-contact-item">
+                            <a href="mailto:kajal.mahto1318@gmail.com">kajal.mahto1318@gmail.com</a>
+                            <i data-lucide="mail"></i>
+                        </div>
+                        <div class="hero-contact-item">
+                            <a href="tel:+918799093651">+91 87990 93651</a>
+                            <i data-lucide="phone"></i>
+                        </div>
+                        <div class="hero-contact-item">
+                            <span>Ahmedabad, Gujarat, India</span>
+                            <i data-lucide="map-pin"></i>
+                        </div>
+                        <div class="hero-contact-item">
+                            <a href="https://www.linkedin.com/in/kajal-mahto-826006320" target="_blank" rel="noopener noreferrer">linkedin.com/in/kajal-mahto</a>
+                            <i data-lucide="linkedin"></i>
+                        </div>
+                        <div class="hero-contact-item">
+                            <a href="https://github.com/kajalmahto" target="_blank" rel="noopener noreferrer">github.com/kajalmahto</a>
+                            <i data-lucide="github"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Body: Sidebar + Main -->
+            <div class="resume-body">
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Technical Skills</div>
+                        <div class="skill-tag-group">
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">EC2</span>
+                            <span class="skill-tag">VPC</span>
+                            <span class="skill-tag">S3</span>
+                            <span class="skill-tag">IAM</span>
+                            <span class="skill-tag">Route 53</span>
+                            <span class="skill-tag">ALB</span>
+                            <span class="skill-tag">ASG</span>
+                            <span class="skill-tag">ECS</span>
+                            <span class="skill-tag">EKS</span>
+                            <span class="skill-tag">ECR</span>
+                            <span class="skill-tag">RDS</span>
+                            <span class="skill-tag">Lambda</span>
+                            <span class="skill-tag">CloudWatch</span>
+                            <span class="skill-tag">SNS</span>
+                            <span class="skill-tag">EventBridge</span>
+                            <span class="skill-tag">Secrets Manager</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">IaC & CI/CD</div>
+                        <div class="skill-tag-group">
+                            <span class="skill-tag">Terraform</span>
+                            <span class="skill-tag">AWS CDK</span>
+                            <span class="skill-tag">CloudFormation</span>
+                            <span class="skill-tag">GitHub Actions</span>
+                            <span class="skill-tag">Jenkins</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Containers & Tools</div>
+                        <div class="skill-tag-group">
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Bash</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">MongoDB</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Education</div>
+
+                        <div class="edu-sidebar-item">
+                            <div class="edu-sidebar-degree">Bachelor of Computer Application</div>
+                            <div class="edu-sidebar-school">Government BCA College, Gujarat University</div>
+                            <div class="edu-sidebar-meta">
+                                <span class="edu-sidebar-score">CGPA: 7.58</span>
+                                <span class="edu-sidebar-year">2021 – 2024</span>
+                            </div>
+                        </div>
+
+                        <div class="edu-sidebar-item">
+                            <div class="edu-sidebar-degree">Class 12th (GSEB)</div>
+                            <div class="edu-sidebar-school">Rashtra Bharti Hindi Higher Secondary School</div>
+                            <div class="edu-sidebar-meta">
+                                <span class="edu-sidebar-score">80%</span>
+                                <span class="edu-sidebar-year">May 2021</span>
+                            </div>
+                        </div>
+
+                        <div class="edu-sidebar-item">
+                            <div class="edu-sidebar-degree">Class 10th (GSEB)</div>
+                            <div class="edu-sidebar-school">Rashtra Bharti Hindi School</div>
+                            <div class="edu-sidebar-meta">
+                                <span class="edu-sidebar-score">75.67%</span>
+                                <span class="edu-sidebar-year">April 2019</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Languages</div>
+                        <div class="lang-pills">
+                            <span class="lang-pill">English</span>
+                            <span class="lang-pill">Hindi</span>
+                            <span class="lang-pill">Gujarati</span>
+                        </div>
+                    </div>
+
+                </aside>
+
+                <!-- Main Content -->
+                <div class="main-content">
+
+                    <!-- Professional Summary -->
+                    <div class="content-section">
+                        <h3 class="content-title">Professional Summary</h3>
+                        <p class="summary-text">
+                            Junior DevOps Engineer with 1 year of hands-on experience in designing, deploying, and managing AWS cloud infrastructure using Terraform, AWS CDK, and AWS CloudFormation. Experienced in building CI/CD pipelines with GitHub Actions, deploying scalable cloud-native applications, and implementing secure, highly available, and production-ready infrastructure. Proficient in Linux, Docker, Kubernetes, Jenkins, AWS services, and DevOps best practices, with a strong passion for cloud automation and infrastructure engineering.
+                        </p>
+                    </div>
+
+                    <!-- Professional Experience -->
+                    <div class="content-section">
+                        <h3 class="content-title">Professional Experience</h3>
+
+                        <div class="exp-block">
+                            <div class="exp-top">
+                                <span class="exp-role">Junior DevOps Engineer</span>
+                                <span class="exp-date">Jan 2026 – Present</span>
+                            </div>
+                            <div class="exp-company">Softqube Technologies <span>• Ahmedabad, Gujarat</span></div>
+                            <ul class="exp-bullets">
+                                <li>Provisioned and managed cloud infrastructure on <strong>AWS</strong> using <strong>Terraform</strong>, <strong>AWS CDK</strong>, and <strong>CloudFormation</strong>, enabling fully automated and repeatable environment setups.</li>
+                                <li>Designed and implemented <strong>CI/CD pipelines</strong> using <strong>GitHub Actions</strong> for automated building, testing, and deploying of applications across development, staging, and production.</li>
+                                <li>Configured <strong>Auto Scaling Groups (ASG)</strong>, <strong>Application Load Balancers (ALB)</strong>, and health checks across multi-AZ setups for high availability and fault tolerance.</li>
+                                <li>Implemented <strong>IAM Roles & Policies</strong> following least-privilege principles, managed secrets via <strong>AWS Secrets Manager</strong>, and enforced secure VPC architecture.</li>
+                                <li>Containerized applications using <strong>Docker</strong>, pushed images to <strong>Amazon ECR</strong>, and deployed container workloads to <strong>ECS Fargate</strong>.</li>
+                            </ul>
+                        </div>
+
+                        <div class="exp-block">
+                            <div class="exp-top">
+                                <span class="exp-role">Cloud & Infrastructure Engineer</span>
+                                <span class="exp-date">Jun 2025 – Dec 2025</span>
+                            </div>
+                            <div class="exp-company">TechAnek Technologies <span>• Ahmedabad, Gujarat</span></div>
+                            <ul class="exp-bullets">
+                                <li>Deployed and managed containerized microservices on <strong>Amazon EKS</strong>, configured cluster auto-scaling, and automated maintenance tasks.</li>
+                                <li>Built serverless data pipelines using <strong>AWS Glue ETL</strong> to migrate 500GB+ data from DocumentDB to <strong>Amazon RDS PostgreSQL/MySQL</strong>, reducing licensing costs by 30%.</li>
+                                <li>Automated multi-region EKS cluster discovery and monitoring with <strong>Jenkins</strong> pipelines and Python scripting.</li>
+                                <li>Provisioned staging environments with <strong>Terraform</strong> and set up alerting via <strong>CloudWatch</strong>, <strong>EventBridge</strong>, and <strong>SNS</strong> for proactive incident response.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Key Projects -->
+                    <div class="content-section">
+                        <h3 class="content-title">Key Projects</h3>
+
+                        <div class="project-block">
+                            <div class="project-name">EDTV – High-Availability Media Platform <span>| Softqube Technologies</span></div>
+                            <p class="project-desc">Built a scalable containerized video platform using AWS CDK (TypeScript), deploying ECS Fargate clusters, CloudFront CDN, Route 53, and ALB. Reduced media latency by 45% and hosting costs by 35%.</p>
+                            <div class="project-techs">
+                                <span class="project-tech-tag">AWS CDK</span>
+                                <span class="project-tech-tag">ECS Fargate</span>
+                                <span class="project-tech-tag">CloudFront</span>
+                                <span class="project-tech-tag">Route 53</span>
+                            </div>
+                        </div>
+
+                        <div class="project-block">
+                            <div class="project-name">Quantum – Multi-Tier Secure Enterprise Cloud <span>| Softqube Technologies</span></div>
+                            <p class="project-desc">Provisioned secure multi-tier VPC infrastructure with CloudFormation — public, private application, and isolated data subnets. Implemented ALB, ASG, NAT Gateways, and IAM least-privilege patterns for zero-downtime deployments.</p>
+                            <div class="project-techs">
+                                <span class="project-tech-tag">CloudFormation</span>
+                                <span class="project-tech-tag">VPC</span>
+                                <span class="project-tech-tag">ALB</span>
+                                <span class="project-tech-tag">ASG</span>
+                            </div>
+                        </div>
+
+                        <div class="project-block">
+                            <div class="project-name">Multi-Region Kubernetes Governance <span>| TechAnek Technologies</span></div>
+                            <p class="project-desc">Built a centralized Jenkins-based governance tool to auto-discover and monitor EKS clusters across global AWS regions, reducing admin workload by 10+ hours/week.</p>
+                            <div class="project-techs">
+                                <span class="project-tech-tag">Amazon EKS</span>
+                                <span class="project-tech-tag">Jenkins</span>
+                                <span class="project-tech-tag">Python</span>
+                                <span class="project-tech-tag">Bash</span>
+                            </div>
+                        </div>
+
+                        <div class="project-block">
+                            <div class="project-name">DocumentDB to RDS ETL Pipeline <span>| TechAnek Technologies</span></div>
+                            <p class="project-desc">Designed serverless migration architecture using AWS Glue ETL and Apache Spark to transform 500GB+ JSON data from DocumentDB into relational RDS PostgreSQL, cutting storage costs by 30%.</p>
+                            <div class="project-techs">
+                                <span class="project-tech-tag">AWS Glue</span>
+                                <span class="project-tech-tag">RDS PostgreSQL</span>
+                                <span class="project-tech-tag">EventBridge</span>
+                                <span class="project-tech-tag">SNS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+</html>
