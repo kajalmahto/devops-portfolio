@@ -191,8 +191,43 @@ body {
     align-items: center;
 }
 
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    flex-wrap: wrap-reverse;
+}
+
 .hero-content {
-    max-width: 800px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 650px;
+}
+
+.hero-image-wrapper {
+    flex-shrink: 0;
+    position: relative;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    padding: 6px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+    animation: float-profile 6s ease-in-out infinite;
+    box-shadow: 0 10px 40px -10px var(--primary-glow);
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--bg-dark);
+}
+
+@keyframes float-profile {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
 }
 
 .greeting {
@@ -651,6 +686,18 @@ h1 {
     background: linear-gradient(to right, var(--primary), var(--secondary), var(--accent));
     z-index: 1001;
     transition: width 0.1s ease;
+}
+
+/* Email Links */
+.email-link {
+    color: var(--text-main);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.email-link:hover {
+    color: var(--primary);
+    text-decoration: underline;
 }
 
 /* Project Tags */
